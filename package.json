@@ -2,7 +2,10 @@
   "name": "unmock-docs",
   "version": "0.0.0",
   "description": "Docs for unmock",
-  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  }
   "repository": "https://github.com/unmock/unmock-docs",
   "author": "Mike Solomon",
   "license": "MIT",
