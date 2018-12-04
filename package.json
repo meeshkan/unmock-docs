@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
-  }
+  },
   "repository": "https://github.com/unmock/unmock-docs",
   "author": "Mike Solomon",
   "license": "MIT",
