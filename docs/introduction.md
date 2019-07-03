@@ -16,7 +16,7 @@ Use unmock to
 
 ## How it works
 
-Let's assume you want to fetch a GitHub user's email address using `node-fetch`:
+Let's assume you want to fetch a GitHub user's email address using `fetch`:
 
 ```js
 async function fetchGitHubUserEmail(username) {
