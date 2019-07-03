@@ -71,7 +71,7 @@ workflows:
   build-deploy:
     jobs:
       - build
-      # - deploy:
-      #     requires:
-      #      - build
-      #    filters: *filter-only-master
+      - deploy:
+          requires:
+           - build
+          filters: *filter-only-master
