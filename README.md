@@ -1,8 +1,7 @@
-# Fake documentation for unmock MVP (Jun 2019)
+# unmock docs
 
-Start docusaurus server by cd'ing to `website/` and running
+Documentation using [Docusaurus](https://docusaurus.io/).
 
-```text
-yarn
-yarn start
-```
+## Development
+
+See the Docusaurus README in [website/README.md](./website/README.md).
