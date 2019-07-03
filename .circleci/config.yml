@@ -1,7 +1,7 @@
 
     
 aliases:
-  - &root-yarn |
+  - &root-yarn-install |
     yarn install --non-interactive --cache-folder ~/.cache/yarn
 
   - &root-restore-yarn-cache
@@ -44,17 +44,28 @@ jobs:
     <<: *defaults
     steps:
       - checkout: *root-checkout
-      - run: *root-yarn
+      - run: *root-yarn-install
       - save_cache: *root-save-yarn-cache
       - run: *root-build
   deploy:
     <<: *defaults
     steps:
       - checkout: *root-checkout
+      - run: *root-yarn-install
+      - save_cache: *root-save-yarn-cache
+      - run: *root-build
       - run:
-          name: Deploy master
+          name: Configure GitHub Bot
           command: |
-            echo "Not implemented"
+            if [[ $CIRCLE_PROJECT_USERNAME == "unmock" && -z $CI_PULL_REQUEST && -z $CIRCLE_PR_USERNAME ]]; then
+              git config --global user.email $GITHUB_USERNAME@users.noreply.github.com
+              git config --global user.name $GITHUB_USERNAME
+              echo "machine github.com login $GITHUB_USERNAME password $GITHUB_TOKEN" > ~/.netrc
+            fi
+      - run:
+          name: Deploy to GitHub Pages
+          command: |
+            GIT_USER=$GITHUB_USERNAME USE_SSH=false yarn run publish-gh-pages
 workflows:
   version: 2
   build-deploy:
