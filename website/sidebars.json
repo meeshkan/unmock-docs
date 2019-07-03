@@ -1,0 +1,12 @@
+{
+  "docs": {
+    "Getting started": ["introduction", "quick-start", "installation", "faq"],
+    "Reference": [
+      "using-cli",
+      "configuration",
+      "request-matching",
+      "jest-integration",
+      "circleci-integration"
+    ]
+  }
+}
