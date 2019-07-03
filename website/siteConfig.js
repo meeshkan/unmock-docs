@@ -23,15 +23,15 @@ const users = [
 const siteConfig = {
   title: "Unmock", // Title for your website.
   tagline: "Make mocking fun again",
-  url: "https://unmock-jest-fake-docs-kimmo.herokuapp.com", // Your website URL
-  baseUrl: "/", // Base URL for your project */
+  url: "https://unmock.github.io", // Your website URL
+  baseUrl: "/unmock-docs/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: "",
-  organizationName: "Meeshkan",
+  projectName: "unmock-docs",
+  organizationName: "unmock",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
