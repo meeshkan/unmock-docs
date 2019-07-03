@@ -26,7 +26,7 @@ aliases:
       ignore: gh-pages
 
 defaults: &defaults
-  working_directory: ~/unmock-docs
+  working_directory: ~/unmock-docs/website
   docker:
     - image: circleci/node:8
   # resource_class: large
@@ -46,7 +46,8 @@ jobs: # a collection of steps
   deploy:
     <<: *defaults
     steps:
-      - checkout
+      - checkout:
+          path: ~/unmock-docs
       - run:
           name: Deploy master
           command: |
