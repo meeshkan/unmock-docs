@@ -25,30 +25,32 @@ aliases:
     branches:
       ignore: gh-pages
 
+  - &root-checkout
+    path: ~/unmock-docs
+
+  - &root-build
+    name: Run build
+    command: yarn build
+
+
 defaults: &defaults
   working_directory: ~/unmock-docs/website
   docker:
     - image: circleci/node:8
-  # resource_class: large
 
-version: 2 # use CircleCI 2.0
-jobs: # a collection of steps
-  build: # runs not using Workflows must have a `build` job as entry point
+version: 2
+jobs:
+  build:
     <<: *defaults
-    steps: # a collection of executable commands
-      - checkout:
-          path: ~/unmock-docs
-      - restore_cache: *root-restore-yarn-cache
+    steps:
+      - checkout: *root-checkout
       - run: *root-yarn
       - save_cache: *root-save-yarn-cache
-      - run:
-          name: Run build
-          command: yarn build
+      - run: *root-build
   deploy:
     <<: *defaults
     steps:
-      - checkout:
-          path: ~/unmock-docs
+      - checkout: *root-checkout
       - run:
           name: Deploy master
           command: |
