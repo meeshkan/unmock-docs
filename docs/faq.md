@@ -10,7 +10,7 @@ See [comparison to existing tools](introduction.md#comparison-to-existing-tools)
 
 #### Why is it called unmock if it's a mocking library?
 
-The long-term mission at [unmock.io](https://unmock.io) is to provide a functionally adequate mock of the internet, so you don't have to mock. The mocking library is a side-product of that.
+The long-term mission at [unmock.io](https://unmock.io) is to provide a functionally adequate mock of the internet, so you don't have to mock. This mocking library is a side-product of that.
 
 #### Can I record requests and mocks?
 
