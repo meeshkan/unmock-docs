@@ -1,6 +1,6 @@
 ---
 id: state
-title: State
+title: Modifying state
 sidebar_label: Modifying state
 ---
 
