@@ -70,7 +70,8 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - build:
+          filters: *filter-ignore-gh-pages
       - deploy:
           requires:
            - build
