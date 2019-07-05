@@ -6,7 +6,7 @@ sidebar_label: Frequently asked questions
 
 #### Why build yet another mocking library?
 
-See [comparison to existing tools](introduction.md#comparison-to-existing-tools).
+See [comparison to existing tools](comparison.md).
 
 #### Why is it called unmock if it's a mocking library?
 

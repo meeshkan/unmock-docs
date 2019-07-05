@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting started": ["introduction", "getting-started", "faq"],
+    "Getting started": ["introduction", "getting-started", "comparison", "faq"],
     "Reference": ["services", "state"]
   }
 }
