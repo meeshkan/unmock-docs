@@ -26,7 +26,7 @@ $ yarn start
 
 ## Developer commands
 
-Generate build in `build/`:
+Generate build in `build/` directory:
 
 ```text
 yarn build
