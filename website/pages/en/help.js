@@ -7,6 +7,7 @@
 
 const React = require("react");
 
+// @ts-ignore
 const CompLibrary = require("../../core/CompLibrary.js");
 
 const Container = CompLibrary.Container;
