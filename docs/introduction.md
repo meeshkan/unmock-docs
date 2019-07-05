@@ -4,15 +4,15 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
-unmock provides an opinionated and scalable way to mock external services in your tests.
+unmock is an opinionated and scalable way to mock external services in tests.
 
 ## Motivation
 
-Services are the glue connecting modern applications: for example, the GitHub API is a service. Every service has a specification describing how the service behaves, be either written documentation, [OpenAPI](https://www.openapis.org/), [RAML](https://raml.org/), or something else. The specification for a service should be _reusable_ across applications.
+Services are the glue connecting modern applications: for example, the GitHub API is a service. Every service has a specification describing how the service behaves, be either written documentation, [OpenAPI](https://www.openapis.org/), [RAML](https://raml.org/), or something else. The specification for a service is _reusable_ across applications.
 
-Still, when testing how our applications integrate with external services, we rarely use the specifications directly, but instead write adhoc rules for how the external services should behave. Writing rules is error-prone, time-consuming, and hard to maintain.
+Still, when testing how our applications integrate with external services, we rarely use the specifications directly. Instead, we write adhoc rules for how the services should behave. Writing such rules is error-prone, time-consuming, and hard to maintain.
 
-This is what unmock wants to fix. Testing the integration with external services should rely on the _service specification_. Setting the service _state_ should happen programmatically before every test. The state should be consistent with the service specification.
+This is what unmock wants to fix. Testing the integration with external services should start from the _service specification_. Setting the service _state_ should happen programmatically before every test. The state should be _consistent_ with the service specification.
 
 ## How it works
 
@@ -73,9 +73,9 @@ paths:
     email: string!
 ```
 
-Running the test should pass now. If you're familiar with the OpenAPI specification, the contents of `index.yml` should look familiar to you, and indeed the file format is an extension of the OpenAPI specification. Read more about services and their specifications [here](services.md).
+The test passes now. If you're familiar with the OpenAPI specification, the contents of `index.yml` should look familiar to you, and indeed the file format is an extension of the OpenAPI specification. Read more about services and their specifications [here](services.md).
 
-The specification for the `github` service is saying that the returned email address should be any string. This may be all you need to test the function logic. If you want the service to return a given email address instead of a random string, simply add a call to `states.github()` to modify the _state_ of the service:
+The specification for the `github` service defines the email address as any string. This may be all you need to test the function logic, but if you want the service to return a given email address instead of a random string, simply add a call to `states.github()` to modify the _state_ of the service:
 
 ```js
 import unmock, { states } from "unmock-node";
@@ -98,7 +98,7 @@ Get started with unmock [here](getting-started.md).
 
 ## Mission
 
-unmock wants to provide a semantically adequate, mocked version of the internet so you never have to create a mock manually again. Before we get there, we want to enforce best practices for testing external APIs.
+unmock wants to provide a semantically adequate, mocked version of the services in the internet so you never have to create a mock manually again. Before we get there, we provide best practices for testing external services.
 
 ## Next steps
 
