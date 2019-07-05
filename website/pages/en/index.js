@@ -7,6 +7,9 @@
 
 const React = require("react");
 
+// Silence editor complaining about missing comp library
+// https://github.com/facebook/docusaurus/blob/master/docs/api-pages.md#page-require-paths
+// @ts-ignore
 const CompLibrary = require("../../core/CompLibrary.js");
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
