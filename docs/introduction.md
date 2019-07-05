@@ -43,7 +43,7 @@ it("fetches GitHub organization's email", async () => {
 The test would complete successfully if the `GITHUB_API_TOKEN` environment variable was set properly. However, it is bad practice to hit the API in unit tests, because
 
 1. running unit tests counts against the rate limit,
-1. bugs in the code could corrupt production data,
+1. tests could change production data,
 1. organization's email could change and that would break the test.
 
 Let us add unmock to capture outgoing calls and check if the value returned from `fetchGitHubOrganizationEmail` is a `String`:
@@ -51,12 +51,11 @@ Let us add unmock to capture outgoing calls and check if the value returned from
 ```js
 import unmock from "unmock-node";
 
-beforeAll(() => {
-  unmock.initialize();  // Capture outgoing calls
-})
+unmock.initialize();  // Capture outgoing calls
+
 it("fetches GitHub organization's email", async () => {
   const email = await fetchGitHubOrganizationEmail("meeshkan");
-  expect(email).toEqual(expect.any(String));
+  expect(typeof email).toEqual("string");
 }
 ```
 
@@ -78,11 +77,10 @@ The test passes now. If you're familiar with the OpenAPI specification, the cont
 The specification for the `github` service defines the email address as any string. This may be all you need to test the function logic, but if you want the service to return a given email address instead of a random string, simply add a call to `states.github()` to modify the _state_ of the service:
 
 ```js
-import unmock, { states } from "unmock-node";
+import unmock from "unmock-node";
 
-beforeAll(() => {
-  unmock.initialize();  // Capture outgoing calls
-})
+const { states } = unmock.initialize();  // Capture outgoing calls
+
 it("fetches GitHub organization's email", async () => {
   // Set the email address returned by the GitHub service:
   states.github({ email: "contact@meeshkan.com" });
