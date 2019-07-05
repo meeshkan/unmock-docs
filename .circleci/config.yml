@@ -32,9 +32,9 @@ aliases:
     name: Run build
     command: yarn build
 
-  - &copy-circleci-config
+  - &copy-circleci-config-to-build
     name: Copy .circleci/config.yml to build
-    command: cp -r ../.circleci build/
+    command: cp -r ../.circleci build/unmock-docs/
 
 
 defaults: &defaults
@@ -51,7 +51,6 @@ jobs:
       - run: *root-yarn
       - save_cache: *root-save-yarn-cache
       - run: *root-build
-      - run: *copy-circleci-config
   deploy:
     <<: *defaults
     steps:
@@ -59,6 +58,7 @@ jobs:
       - run: *root-yarn
       - save_cache: *root-save-yarn-cache
       - run: *root-build
+      - run: *copy-circleci-config-to-build
       - run:
           name: Configure GitHub Bot and deploy
           command: |
