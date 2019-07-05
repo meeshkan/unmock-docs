@@ -40,13 +40,15 @@ defaults: &defaults
 
 version: 2
 jobs:
-  build:
+  tests:
     <<: *defaults
     steps:
       - checkout: *root-checkout
       - run: *root-yarn
       - save_cache: *root-save-yarn-cache
-      - run: *root-build
+      - run:
+          name: "Run linter"
+          command: "yarn lint"
   deploy:
     <<: *defaults
     steps:
@@ -70,9 +72,9 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build:
+      - tests:
           filters: *filter-ignore-gh-pages
       - deploy:
           requires:
-           - build
+           - tests
           filters: *filter-only-master

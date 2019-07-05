@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const React = require("react");
 
 // Silence editor complaining about missing comp library
