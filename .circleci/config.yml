@@ -32,6 +32,10 @@ aliases:
     name: Run build
     command: yarn build
 
+  - &copy-circleci-config
+    name: Copy .circleci/config.yml to build
+    command: cp -r ../.circleci build/
+
 
 defaults: &defaults
   working_directory: ~/unmock-docs/website
@@ -47,6 +51,7 @@ jobs:
       - run: *root-yarn
       - save_cache: *root-save-yarn-cache
       - run: *root-build
+      - run: *copy-circleci-config
   deploy:
     <<: *defaults
     steps:
