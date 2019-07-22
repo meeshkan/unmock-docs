@@ -26,7 +26,7 @@ aliases:
       ignore: gh-pages
 
   - &root-checkout
-    path: ~/unmock-docs
+    path: ~/unmock.github.io
 
   - &root-build
     name: Run build
@@ -34,7 +34,7 @@ aliases:
 
 
 defaults: &defaults
-  working_directory: ~/unmock-docs/website
+  working_directory: ~/unmock.github.io/website
   docker:
     - image: circleci/node:8
 
