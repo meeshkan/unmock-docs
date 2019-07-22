@@ -9,19 +9,28 @@
 // site configuration options.
 
 // List of projects/orgs using your project for the users page.
-const users = [];
+const users = [
+  {
+    caption: "User1",
+    // You will need to prepend the image path with your baseUrl
+    // if it is not '/', like: '/test-site/img/image.jpg'.
+    image: "/img/undraw_open_source.svg",
+    infoLink: "https://www.facebook.com",
+    pinned: true,
+  },
+];
 
 const siteConfig = {
   title: "Unmock", // Title for your website.
   tagline: "Make mocking fun again",
   url: "https://unmock.github.io", // Your website URL
-  baseUrl: "/", // Base URL for your project */
+  baseUrl: "/unmock-docs/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: "unmock.github.io",
+  projectName: "unmock-docs",
   organizationName: "unmock",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
